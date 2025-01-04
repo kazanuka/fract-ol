@@ -6,7 +6,7 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 18:17:06 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/04 15:38:32 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/04 18:22:01 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ click on the x window, closes process leaks free
 */
 #include "minilibx-linux/mlx.h"
 #include "fractol.h"
- int main(int argc, char **argv)
+  int main(int argc, char **argv)
 {
     t_fractol *fractol;
     fractol = malloc(sizeof(t_fractol));
@@ -43,5 +43,5 @@ click on the x window, closes process leaks free
 
 
     
-}  
+} 
 

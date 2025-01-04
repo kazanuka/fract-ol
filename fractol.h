@@ -6,7 +6,7 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 18:34:48 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/04 14:38:18 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/04 18:27:17 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,12 @@ typedef struct s_fractol
 	int		max_iterations;    
 }   t_fractol;
 
+
+void	put_color(int x, int y, t_fractol *fractol, int color);
+void	calc_mbrot(t_fractol *fractol);
 void    init_fractol(t_fractol *fractol);
 void    init_mlx(t_fractol *fractol);
-int	ft_strncmp(const char *s1, const char *s2, size_t n);
-
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+void	mbrot_draw(void *ptr);
 
 #endif
