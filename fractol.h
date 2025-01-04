@@ -6,7 +6,7 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 18:34:48 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/04 18:27:17 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/04 18:41:43 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,6 @@ void    init_fractol(t_fractol *fractol);
 void    init_mlx(t_fractol *fractol);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	mbrot_draw(void *ptr);
+void    draw(t_fractol *fractol, char *prompt);
 
 #endif
