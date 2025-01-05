@@ -6,7 +6,7 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 14:37:21 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/05 17:23:01 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/05 18:21:50 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,29 +32,56 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
 
-int	ft_atoi(const char *str)
-{
-	int	i;
-	int	sign;
-	int	res;
 
-	res = 0;
-	i = 0;
-	sign = 1;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'
-		|| str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
-		i++;
-	if (str[i] == '-')
-	{
-		sign = -1;
-		i++;
-	}
-	else if (str[i] == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		res = res * 10 + (str[i] - '0');
-		i++;
-	}
-	return (sign * res);
+
+static void	ft_set_var(int *a, double *result,
+		double *fraction, int *fractionDigits)
+{
+	*a = 0;
+	*result = 0.0;
+	*fraction = 0.0;
+	*fractionDigits = 0;
 }
+
+static void	ft_pow(double *fraction, int *fractiondigits,
+									int a, const char *str)
+{
+	if (str[a] == '.')
+	{
+		a++;
+		while (str[a] >= '0' && str[a] <= '9')
+		{
+			*fraction = *fraction * 10.0 + (str[a] - '0');
+			*fractiondigits += 1;
+			a++;
+		}
+	}
+}
+
+double	ft_atod(const char *str)
+{
+	int		a;
+	int		flag;
+	double	result;
+	double	fraction;
+	int		fractiondigits;
+
+	ft_set_var(&a, &result, &fraction, &fractiondigits);
+	if (str[a] == '-' || str[a] == '+')
+	{
+		if (str[a] == '-')
+			flag = -1;
+		else
+			flag = 1;
+		a++;
+	}
+	while (str[a] >= '0' && str[a] <= '9')
+	{
+		result = result * 10.0 + (str[a] - '0');
+		a++;
+	}
+	ft_pow(&fraction, &fractiondigits, a, str);
+	result += fraction / pow(10, fractiondigits);
+	return (result * flag);
+}
+
