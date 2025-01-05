@@ -6,7 +6,7 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 11:27:16 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/05 11:36:49 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/05 11:39:41 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,11 @@ void	calc_mbrot(t_fractol *fractol)
 		tmp = (fractol->zx) * (fractol->zx) - (fractol->zy) * (fractol->zy) + (fractol->cx);
 		(fractol->zy) = 2 * (fractol->zx) * (fractol->zy) + fractol->cy;
 		(fractol->zx) = tmp;
-		
 		if(fractol->zx * fractol->zx + fractol->zy * fractol->zy >= __DBL_MAX__ )
 			break;
 	}
-	
+	if(i == (fractol->max_iterations))
+		put_color((fractol->x),(fractol->y),fractol,0x000000);
+	else
+		put_color((fractol->x),(fractol->y),fractol,(fractol->color));
 }
