@@ -6,7 +6,7 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 16:01:36 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/05 16:19:57 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/05 17:53:21 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	key_hook(int key_code, t_fractol *fractol)
 		set_random_julia(&fractal->cx, &fractal->cx);
 	else if (key_code == M || key_code == P)
 		change_iterations(fractal, key_code); */
-	draw(fractol, "mbrot");
+	draw(fractol, fractol->name);
 	return (0);
 }
 

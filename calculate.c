@@ -6,7 +6,7 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 11:27:16 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/05 16:59:03 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/05 17:52:48 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,19 +39,39 @@ void	calc_mbrot(t_fractol *fractal)
 		paint(fractal->x,fractal->y,fractal,fractal->color *i);
 }
 
+void	calc_julia(t_fractol *fractol)
+{
+    int		i;
+	double	tmp;
+	
+	fractol->name = "julia";
+	i = 0;
+	fractol->cx = fractol->jul_x;
+	fractol->cy = fractol->jul_y;
+	fractol->zx = (fractol->x / fractol->zoom) + fractol->off_x;
+	fractol->zy = (fractol->y / fractol->zoom) + fractol->off_y;
+	while (++i < fractol->max_iterations)
+	{
+		tmp = fractol->zx * fractol->zx - fractol->zy * fractol->zy
+			+ fractol->cx;
+		fractol->zy = 2. * fractol->zx * fractol->zy + fractol->cy;
+		fractol->zx = tmp;
+		if (fractol->zx * fractol->zx + fractol->zy
+			* fractol->zy >= __DBL_MAX__)
+			break ;
+	}
+	if(i == fractol->max_iterations)
+		paint((fractol->x),(fractol->y),fractol,0);
+	else
+		paint((fractol->x),(fractol->y),fractol,(fractol->color)*i);
+    
+}
+
+
 void	paint(int x, int y, t_fractol *fractol, int color)//	bu fonksiyona iyi bak
 {
 	int	*buffer;
 
-    if (x < 0 || x >= SIZE || y < 0 || y >= SIZE)
-        return; // Geçersiz koordinatlar
-
     buffer = (int *)fractol->pointer_to_image;
-    if (!buffer)
-    {
-        fprintf(stderr, "Error: pointer_to_image is NULL\n");
-        return;
-    }
-
 	buffer[(y * fractol->size_line / 4) + x] = color;
 }

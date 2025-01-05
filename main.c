@@ -6,7 +6,7 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 18:17:06 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/05 17:25:10 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/05 17:50:43 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,14 @@ click on the x window, closes process leaks free
         (argc == 4 && !ft_strncmp(argv[1], "julia", 5)))
     {
         init_fractol(fractol);
-        draw(fractol, argv[1],argv[2],argv[3]);
+        if(argc == 4)
+        {
+            fractol->jul_x = ft_atoi(argv[2]);
+            fractol->jul_y = ft_atoi(argv[2]);
+            draw(fractol, argv[1]);
+        }
+        else
+            draw(fractol, argv[1]);
     	mlx_key_hook(fractol->window, key_hook, fractol);
 		mlx_mouse_hook(fractol->window, mouse_hook, fractol);
 		mlx_hook(fractol->window, 17, 0L, exit_fractal, fractol);
