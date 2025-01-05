@@ -6,7 +6,7 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 18:17:06 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/04 19:10:18 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/05 11:54:39 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ click on the x window, closes process leaks free
         init_fractol(fractol);
         init_mlx(fractol);
         draw(fractol,argv[1]);
-        
         mlx_loop(fractol->mlx);
         
             
