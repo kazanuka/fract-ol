@@ -6,7 +6,7 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 11:27:16 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/05 11:39:41 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/05 11:41:42 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,15 @@ void	calc_mbrot(t_fractol *fractol)
 			break;
 	}
 	if(i == (fractol->max_iterations))
-		put_color((fractol->x),(fractol->y),fractol,0x000000);
+		paint((fractol->x),(fractol->y),fractol,0x000000);
 	else
-		put_color((fractol->x),(fractol->y),fractol,(fractol->color));
+		paint((fractol->x),(fractol->y),fractol,(fractol->color));
+}
+
+void	paint(int x, int y, t_fractol *fractol, int color)//	bu fonksiyona iyi bak
+{
+	int	*buffer;
+
+	buffer = fractol->pointer_to_image;
+	buffer[(y * fractol->size_line / 4) + x] = color;
 }
