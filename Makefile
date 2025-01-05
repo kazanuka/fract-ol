@@ -26,7 +26,9 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
-	$(MAKE) fclean -C $(MLX_DIR)
+
+	
+	
 	
 
 re: fclean all

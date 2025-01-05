@@ -6,7 +6,7 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 18:17:06 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/05 18:40:57 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/05 18:53:21 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ click on the x window, closes process leaks free
 	
 //-Wall-Wextra -Werror!!!!!!
 //Error var
+//Makefile düzenle
+//Make re
 
     fractol = malloc(sizeof(t_fractol));
 	if(!fractol)
