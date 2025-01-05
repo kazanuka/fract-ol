@@ -6,7 +6,7 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 11:44:05 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/05 14:46:59 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/05 16:12:17 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,7 @@ void	*mbrot_draw(void *fractol_void)
 }
 void draw(t_fractol *fractol, char *prompt)
 {
-    if (!fractol->img)
-        return; // img'nin başlatıldığından emin olun
+    fractol->name = prompt;
 
     if (ft_strncmp(prompt, "mbrot", 5) == 0)
         mbrot_draw(fractol);

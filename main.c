@@ -6,7 +6,7 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 18:17:06 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/05 16:02:24 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/05 16:26:03 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ click on the x window, closes process leaks free
 #include "minilibx-linux/mlx.h"
 #include "fractol.h"
 
- int main(int argc, char **argv) // Julia şimdilik argüman almıyor
+  int main(int argc, char **argv) // Julia şimdilik argüman almıyor
 {
     t_fractol *fractol;
 	
@@ -39,7 +39,7 @@ click on the x window, closes process leaks free
         draw(fractol, argv[1]);
 
     	mlx_key_hook(fractol->window, key_hook, fractol);
-		//mlx_mouse_hook(fractal->window, mouse_hook, fractal);
+		mlx_mouse_hook(fractol->window, mouse_hook, fractol);
 		mlx_hook(fractol->window, 17, 0L, exit_fractal, fractol);
         mlx_loop(fractol->mlx);
     }
@@ -48,6 +48,6 @@ click on the x window, closes process leaks free
 
     }
     return (0);
-}
+} 
  
 

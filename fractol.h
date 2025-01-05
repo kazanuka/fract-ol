@@ -6,7 +6,7 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 18:34:48 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/05 16:07:18 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/05 16:18:45 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ typedef struct s_fractol
 	int		max_iterations;    
 }   t_fractol;
 
-
+int		mouse_hook(int mouse, int x, int y, t_fractol *fractol);
 int		exit_fractal(t_fractol *fractol);
 int		key_hook(int key_code, t_fractol *fractol);
 void	paint(int x, int y, t_fractol *fractol, int color);
