@@ -6,7 +6,7 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 13:49:15 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/05 16:08:47 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/05 18:46:07 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void init_fractol(t_fractol *fractol)//Struct'da belirttiğim fractolün def
 {
     fractol->x = 0;
 	fractol->y = 0;
+	fractol->jul_x = -0.7;
+	fractol->jul_y = 0.2715;
 	fractol->color = 0xFCBE11;
 	fractol->zoom = 300;
 	fractol->off_x = -1.21;

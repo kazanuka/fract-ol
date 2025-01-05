@@ -6,7 +6,7 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 11:44:05 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/05 17:51:51 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/05 18:47:15 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 void    julia_draw(void *ptr)
 {
 	t_fractol	*fractol;
-	int			num1;
-	int			num2;
 	
 	fractol = (t_fractol*)ptr;
     fractol->x = 0;
