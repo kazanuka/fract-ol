@@ -6,7 +6,7 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 18:17:06 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/05 16:26:03 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/05 17:25:10 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,16 @@ click on the x window, closes process leaks free
     t_fractol *fractol;
 	
 //-Wall-Wextra -Werror!!!!!!
+//Error var
 
     fractol = malloc(sizeof(t_fractol));
+	if(!fractol)
+		exit(EXIT_FAILURE);
     if ((argc == 2 && !ft_strncmp(argv[1], "mbrot", 5)) ||
         (argc == 4 && !ft_strncmp(argv[1], "julia", 5)))
     {
         init_fractol(fractol);
-        draw(fractol, argv[1]);
-
+        draw(fractol, argv[1],argv[2],argv[3]);
     	mlx_key_hook(fractol->window, key_hook, fractol);
 		mlx_mouse_hook(fractol->window, mouse_hook, fractol);
 		mlx_hook(fractol->window, 17, 0L, exit_fractal, fractol);

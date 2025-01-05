@@ -1,6 +1,6 @@
 NAME = fractol
 CC = gcc
-CFLAGS = 
+CFLAGS = -g3
 MLX_DIR = minilibx-linux
 MLX = $(MLX_DIR)/libmlx_Linux.a
 LIBS = -lX11 -lXext -lm 
