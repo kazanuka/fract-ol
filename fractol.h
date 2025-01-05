@@ -6,7 +6,7 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 18:34:48 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/05 15:58:57 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/05 16:07:18 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,11 @@ typedef struct s_fractol
 }   t_fractol;
 
 
+int		exit_fractal(t_fractol *fractol);
+int		key_hook(int key_code, t_fractol *fractol);
 void	paint(int x, int y, t_fractol *fractol, int color);
 void	calc_mbrot(t_fractol *fractol);
-void    init_fractol(t_fractol *fractol);
-void    init_mlx(t_fractol *fractol);
+void    init_fractol(t_fractol *fractal);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	*mbrot_draw(void *ptr);
 void    draw(t_fractol *fractol, char *prompt);

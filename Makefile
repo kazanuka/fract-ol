@@ -10,6 +10,7 @@ SRCS =	main.c \
 	str_utils.c \
 	vangogh.c \
    	calculate.c \
+	keyboard.c \
    	
 OBJS = $(SRCS:.c=.o)
 

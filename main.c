@@ -6,7 +6,7 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 18:17:06 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/05 15:58:07 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/05 16:02:24 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,46 +24,6 @@ click on the x window, closes process leaks free
 
 #include "minilibx-linux/mlx.h"
 #include "fractol.h"
-
-int	exit_fractal(t_fractol *fractol)
-{
-	mlx_destroy_image(fractol->mlx, fractol->img);
-	mlx_destroy_window(fractol->mlx, fractol->window);
-	free(fractol->mlx);
-	free(fractol);
-	exit(1);
-	return (0);
-}
-
-int	key_hook(int key_code, t_fractol *fractal)
-{
-	if (key_code == ESC)
-		exit_fractal(fractal);
-	else if (key_code == LEFT)
-		fractal->off_x -= 42 / fractal->zoom;
-	else if (key_code == RIGHT)
-		fractal->off_x += 42 / fractal->zoom;
-	else if (key_code == UP)
-		fractal->off_y -= 42 / fractal->zoom;
-	else if (key_code == DOWN)
-		fractal->off_y += 42 / fractal->zoom;
-	else if (key_code == R)
-		init_fractol(fractal);
-	else if (key_code == C)
-		fractal->color += (255 * 255 * 255) / 100;
-	/* else if (key_code == J)
-		set_random_julia(&fractal->cx, &fractal->cx);
-	else if (key_code == M || key_code == P)
-		change_iterations(fractal, key_code); */
-	draw(fractal, "mbrot");
-	return (0);
-}
-
-
-
-
-
-
 
  int main(int argc, char **argv) // Julia şimdilik argüman almıyor
 {
