@@ -5,10 +5,10 @@ MLX_DIR = minilibx-linux
 MLX = $(MLX_DIR)/libmlx_Linux.a
 LIBS = -lX11 -lXext -lm 
 
-SRCS = 	main.c\
- initializes.c\
-  str_utils.c \ 
-  vangogh.c \
+SRCS = 	main.c \
+	initializes.c \
+	str_utils.c \
+	vangogh.c \
    calculate.c \
    
 OBJS = $(SRCS:.c=.o)

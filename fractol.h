@@ -6,7 +6,7 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 18:34:48 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/05 11:54:01 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/05 12:52:30 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 # include <unistd.h>
 # include <math.h>
 # include "minilibx-linux/mlx.h"
-
+# include <stdio.h>
 #define ERR "Please enter ./fractol mandelbrot or ./fractol julia <value 1> <value 2>"
-#define SIZE 900
+#define SIZE 900.0
 
 typedef struct s_fractol
 {
@@ -50,7 +50,7 @@ void	calc_mbrot(t_fractol *fractol);
 void    init_fractol(t_fractol *fractol);
 void    init_mlx(t_fractol *fractol);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
-void	mbrot_draw(void *ptr);
+void	*mbrot_draw(void *ptr);
 void    draw(t_fractol *fractol, char *prompt);
 void	julia_draw(void *ptr);
 #endif
