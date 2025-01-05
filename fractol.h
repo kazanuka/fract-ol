@@ -6,7 +6,7 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 18:34:48 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/05 12:52:30 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/05 15:58:57 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,25 @@
 # include <stdio.h>
 #define ERR "Please enter ./fractol mandelbrot or ./fractol julia <value 1> <value 2>"
 #define SIZE 900.0
+
+# define ESC 65307
+# define UP 65362
+# define DOWN 65364
+# define LEFT 65361
+# define RIGHT 65363
+# define R 15
+# define C 8
+# define H 4
+# define J 38
+# define P 35
+# define M 46
+
+// MOUSECODES
+# define SCROLL_UP 4
+# define SCROLL_DOWN 5
+
+
+
 
 typedef struct s_fractol
 {

@@ -6,41 +6,52 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 11:27:16 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/05 12:58:15 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/05 15:09:01 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	calc_mbrot(t_fractol *fractol)
+void	calc_mbrot(t_fractol *fractal)
 {
-    int		i = 0;
-    double	tmp;
+    int		i;
+	double	x_temp;
 
-    fractol->zx = 0;
-    fractol->zy = 0;
-    fractol->cx = fractol->off_x + ((fractol->x / (double)SIZE) * 3.0);
-    fractol->cy = fractol->off_y + ((fractol->y / (double)SIZE) * 3.0);
-
-    while (i < fractol->max_iterations)
-    {
-        tmp = fractol->zx * fractol->zx - fractol->zy * fractol->zy + fractol->cx;
-        fractol->zy = 2 * fractol->zx * fractol->zy + fractol->cy;
-        fractol->zx = tmp;
-        if (fractol->zx * fractol->zx + fractol->zy * fractol->zy >= 4.0)
-            break;
-        i++;
-    }
-    if (i == fractol->max_iterations)
-        paint(fractol->x, fractol->y, fractol, 0x000000); // Siyah
-    else
-        paint(fractol->x, fractol->y, fractol, fractol->color * (i % 255));
+	fractal->name = "mbrot";
+	i = 0;
+	fractal->zx = 0.0;
+	fractal->zy = 0.0;
+	fractal->cx = (fractal->x / fractal->zoom) + fractal->off_x;
+	fractal->cy = (fractal->y / fractal->zoom) + fractal->off_y;
+	while (++i < fractal->max_iterations)
+	{
+		x_temp = fractal->zx * fractal->zx - fractal->zy * fractal->zy
+			+ fractal->cx;
+		fractal->zy = 2. * fractal->zx * fractal->zy + fractal->cy;
+		fractal->zx = x_temp;
+		if (fractal->zx * fractal->zx + fractal->zy
+			* fractal->zy >= __DBL_MAX__)
+			break ;
+	}
+	if (i == fractal->max_iterations)
+		paint(fractal->x,fractal->y,fractal,0x000000);
+	else
+		paint(fractal->x,fractal->y,fractal,fractal->color *i);
 }
 
 void	paint(int x, int y, t_fractol *fractol, int color)//	bu fonksiyona iyi bak
 {
 	int	*buffer;
 
-	buffer = fractol->pointer_to_image;
+    if (x < 0 || x >= SIZE || y < 0 || y >= SIZE)
+        return; // Geçersiz koordinatlar
+
+    buffer = (int *)fractol->pointer_to_image;
+    if (!buffer)
+    {
+        fprintf(stderr, "Error: pointer_to_image is NULL\n");
+        return;
+    }
+
 	buffer[(y * fractol->size_line / 4) + x] = color;
 }

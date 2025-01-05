@@ -6,26 +6,26 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 13:49:15 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/05 12:53:58 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/05 15:11:30 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void    init_fractol(t_fractol *fractol)//Struct'da belirttiğim fractolün default değerlerini ayarlıyorum.
+void init_fractol(t_fractol *fractal) // Struct'da belirttiğim fractolün default değerlerini ayarlıyorum.
 {
-    fractol -> x = 0;
-    fractol -> y = 0;
-    fractol -> color = 0xFCBE11;
-    fractol -> zoom = 0;
-    fractol -> off_x = -1.5;
-    fractol -> off_y = -1.5;
-    fractol -> max_iterations = 32;
-    fractol -> mlx = mlx_init();
-    fractol -> window = mlx_new_window(fractol->mlx,SIZE,SIZE, "Fractol");
-    fractol -> img = mlx_new_image(fractol->mlx,SIZE,SIZE);
-    fractol->pointer_to_image = mlx_get_data_addr(fractol->img,
-			&fractol->bits_per_pixel,
-			&fractol->size_line,
-			&fractol->endian);
+    fractal->x = 0;
+	fractal->y = 0;
+	fractal->color = 0xFCBE11;
+	fractal->zoom = 300;
+	fractal->off_x = -1.21;
+	fractal->off_y = -1.21;
+	fractal->max_iterations = 42;
+    fractal->mlx = mlx_init();
+	fractal->window = mlx_new_window(fractal->mlx, SIZE, SIZE, "Fract-ol");
+	fractal->img = mlx_new_image(fractal->mlx, SIZE, SIZE);
+	fractal->pointer_to_image = mlx_get_data_addr(fractal->img,
+			&fractal->bits_per_pixel,
+			&fractal->size_line,
+			&fractal->endian);
 }
