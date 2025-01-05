@@ -1,4 +1,4 @@
-NAME = fractal
+NAME = fractol
 CC = gcc
 CFLAGS = 
 MLX_DIR = minilibx-linux
@@ -24,8 +24,9 @@ clean:
 	rm -f $(OBJS)
 
 fclean: clean
-	$(MAKE) fclean -C $(MLX_DIR)
 	rm -f $(NAME)
+	$(MAKE) fclean -C $(MLX_DIR)
+	
 
 re: fclean all
 

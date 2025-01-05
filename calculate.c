@@ -6,7 +6,7 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 11:27:16 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/05 12:52:19 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/05 12:58:15 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	calc_mbrot(t_fractol *fractol)
     if (i == fractol->max_iterations)
         paint(fractol->x, fractol->y, fractol, 0x000000); // Siyah
     else
-        paint(fractol->x, fractol->y, fractol, fractol->color * (i % 256));
+        paint(fractol->x, fractol->y, fractol, fractol->color * (i % 255));
 }
 
 void	paint(int x, int y, t_fractol *fractol, int color)//	bu fonksiyona iyi bak
