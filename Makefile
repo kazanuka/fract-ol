@@ -1,8 +1,13 @@
 NAME = fractol
-CC = gcc
+
+CC = cc
+
 CFLAGS = -Wall -Wextra -Werror -g3
+
 MLX_DIR = minilibx-linux
+
 MLX = $(MLX_DIR)/libmlx_Linux.a
+
 LIBS = -lX11 -lXext -lm 
 
 SRCS = main.c \
@@ -29,8 +34,6 @@ fclean: clean
 
 	
 	
-	
-
 re: fclean all
 
 .PHONY: all clean fclean re
