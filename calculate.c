@@ -6,7 +6,7 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 11:27:16 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/06 14:12:45 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/06 19:32:24 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	calc_mbrot(t_fractol *fractal)
 {
-    int		i;
+	int		i;
 	double	x_temp;
 
 	fractal->name = "mbrot";
@@ -34,16 +34,16 @@ void	calc_mbrot(t_fractol *fractal)
 			break ;
 	}
 	if (i == fractal->max_iterations)
-		paint(fractal->x,fractal->y,fractal,0);
+		paint(fractal->x, fractal->y, fractal, 0);
 	else
-		paint(fractal->x,fractal->y,fractal,fractal->color *i);
+		paint(fractal->x, fractal->y, fractal, fractal->color * i);
 }
 
 void	calc_julia(t_fractol *fractol)
 {
-     int		i;
+	int		i;
 	double	tmp;
-	
+
 	fractol->name = "julia";
 	i = 0;
 	fractol->cx = fractol->jul_x;
@@ -60,18 +60,16 @@ void	calc_julia(t_fractol *fractol)
 			* fractol->zy >= __DBL_MAX__)
 			break ;
 	}
-	if(i == fractol->max_iterations)
-		paint((fractol->x),(fractol->y),fractol,0);
+	if (i == fractol->max_iterations)
+		paint((fractol->x), (fractol->y), fractol, 0);
 	else
-		paint((fractol->x),(fractol->y),fractol,(fractol->color)*i);
-    
+		paint((fractol->x), (fractol->y), fractol, (fractol->color) * i);
 }
-
 
 void	paint(int x, int y, t_fractol *fractol, int color)
 {
 	int	*tmp;
 
-    tmp = (int *)fractol->img_ptr;
+	tmp = (int *)fractol->img_ptr;
 	tmp[(y * fractol->size_line / 4) + x] = color;
 }
