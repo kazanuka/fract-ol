@@ -6,13 +6,13 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 14:14:58 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/06 15:23:53 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/06 15:40:31 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static	ft_isdigit(int c)
+static int	ft_isdigit(int c)
 {
 	if (c >= 48 && c <= 57)
 	{
@@ -46,24 +46,25 @@ static	int ft_isnum(const char *str) {
     return 1; 
 }
 
-void err_fractol(t_fractol *fractol)
+ void err_fractol(t_fractol *fractol)
 {
-	
-	
-	exit_fractal(fractol);
-}
+	ft_putstr_fd("Usage:\n ./fractol mbrot OR ./fractol julia OR ./fractol julia <val1> <val2>\n",1);
+	ft_putstr_fd("Use '.' as decimal seperator. Please use only ONE decimal seperator.\n",1);
+	free(fractol);
+	exit(1); 
+} 
 
 void    check_args(int argc, char **argv, t_fractol *fractol)
 {
     if (!((argc == 2 && !ft_strncmp(argv[1], "mbrot", 5)) ||
         (argc == 4 && !ft_strncmp(argv[1], "julia", 5)) ||
         (argc == 2 && !ft_strncmp(argv[1], "julia", 5))))
-        exit_fractal(fractol);
+        err_fractol(fractol);
     if (argc > 4 || argc < 2 || argc == 3)
-        exit_fractal(fractol);
+        err_fractol(fractol);
     if (argc == 4 && ft_strncmp(argv[1],"julia",5))
-        exit_fractal(fractol);
+        err_fractol(fractol);
     if (argc == 4 && ((!ft_isnum(argv[2])) || (!ft_isnum(argv[3]))))
-        exit_fractal(fractol);
+        err_fractol(fractol);
         
-}
+} 

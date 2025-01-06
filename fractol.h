@@ -6,7 +6,7 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 18:34:48 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/06 15:18:42 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/06 15:26:20 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,5 @@ void	mbrot_draw(void *ptr);
 void    draw(t_fractol *fractol, char *prompt);
 void	julia_draw(void *ptr);
 void	check_args(int argc, char **argv, t_fractol *fractol);
+void	ft_putstr_fd(char *s, int fd);
 #endif

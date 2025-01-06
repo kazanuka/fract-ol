@@ -6,7 +6,7 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 14:37:21 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/05 18:21:50 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/06 15:26:14 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,16 @@ double	ft_atod(const char *str)
 	ft_pow(&fraction, &fractiondigits, a, str);
 	result += fraction / pow(10, fractiondigits);
 	return (result * flag);
+}
+
+void	ft_putstr_fd(char *s, int fd)
+{
+	if (!s)
+		return ;
+	while (*s)
+	{
+		write(fd, s, 1);
+		++s;
+	}
 }
 
