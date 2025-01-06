@@ -6,7 +6,7 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 18:34:48 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/05 18:20:24 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/06 13:35:59 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include "minilibx-linux/mlx.h"
 # include <stdio.h>
 #define ERR "Please enter ./fractol mandelbrot or ./fractol julia <value 1> <value 2>"
-#define SIZE 900.0
+#define SIZE 900
 
 # define ESC 65307
 # define UP 65362

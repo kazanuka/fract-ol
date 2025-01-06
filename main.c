@@ -6,7 +6,7 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 18:17:06 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/05 18:55:51 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/06 13:36:04 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ click on the x window, closes process leaks free
 //Tuşları düzenle
 //Leakleri hallet
 //zoom ve öteleme mantığına iyi çalış
+//printf çıkart
     fractol = malloc(sizeof(t_fractol));
 	if(!fractol)
 		exit(EXIT_FAILURE);
@@ -47,7 +48,7 @@ click on the x window, closes process leaks free
         if(argc == 4)
         {
             fractol->jul_x = ft_atod(argv[2]);
-            fractol->jul_y = ft_atod(argv[2]);
+            fractol->jul_y = ft_atod(argv[3]);
             draw(fractol, argv[1]);
         }
         else
