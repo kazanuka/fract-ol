@@ -6,7 +6,7 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 13:49:15 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/06 13:37:24 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/06 14:12:59 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,12 @@ void init_fractol(t_fractol *fractol)//Struct'da belirttiğim fractolün def
     fractol->mlx = mlx_init();
 	fractol->window = mlx_new_window(fractol->mlx, SIZE, SIZE, "Fract-ol");
 	fractol->img = mlx_new_image(fractol->mlx, SIZE, SIZE);
-	fractol->pointer_to_image = mlx_get_data_addr(fractol->img,
+	if(!(fractol->mlx)||!(fractol->img)||!(fractol->window))
+		exit_fractal(fractol);
+	fractol->img_ptr = mlx_get_data_addr(fractol->img,
 			&fractol->bits_per_pixel,
 			&fractol->size_line,
-			&fractol->endian);
+			&fractol->end);
 }
 
 

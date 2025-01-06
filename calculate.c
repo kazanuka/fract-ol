@@ -6,7 +6,7 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 11:27:16 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/06 13:59:00 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/06 14:12:45 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,10 @@ void	calc_julia(t_fractol *fractol)
 }
 
 
-void	paint(int x, int y, t_fractol *fractol, int color)//	bu fonksiyona iyi bak
+void	paint(int x, int y, t_fractol *fractol, int color)
 {
-	int	*buffer;
+	int	*tmp;
 
-    buffer = (int *)fractol->pointer_to_image;
-	buffer[(y * fractol->size_line / 4) + x] = color;
+    tmp = (int *)fractol->img_ptr;
+	tmp[(y * fractol->size_line / 4) + x] = color;
 }

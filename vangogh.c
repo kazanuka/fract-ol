@@ -6,7 +6,7 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 11:44:05 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/05 18:47:15 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/06 14:09:13 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ void	mbrot_draw(void *fractol_void)
 		while (fractol->y < SIZE)
 		{
 			calc_mbrot(fractol);
-			fractol->y++;
+			(fractol->y)++;
 		}
-		fractol->x++;
+		(fractol->x)++;
 		fractol->y = 0;
 	}
 }

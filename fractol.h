@@ -6,7 +6,7 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 18:34:48 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/06 13:35:59 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/06 15:18:42 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,14 @@
 
 typedef struct s_fractol
 {
+	int t;
     void	*mlx;
 	void	*window;
 	void	*img;
-	void	*pointer_to_image;
+	void	*img_ptr;
 	int		bits_per_pixel;
 	int		size_line;
-	int		endian;
+	int		end;
 	int		x;
 	int		y;
 	double	zx;
@@ -77,4 +78,5 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	mbrot_draw(void *ptr);
 void    draw(t_fractol *fractol, char *prompt);
 void	julia_draw(void *ptr);
+void	check_args(int argc, char **argv, t_fractol *fractol);
 #endif

@@ -6,7 +6,7 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 18:17:06 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/06 13:36:04 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/06 15:18:57 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,31 +37,26 @@ click on the x window, closes process leaks free
 //Leakleri hallet
 //zoom ve öteleme mantığına iyi çalış
 //printf çıkart
+
+
     fractol = malloc(sizeof(t_fractol));
-	if(!fractol)
-		exit(EXIT_FAILURE);
-    if ((argc == 2 && !ft_strncmp(argv[1], "mbrot", 5)) ||
-        (argc == 4 && !ft_strncmp(argv[1], "julia", 5)) ||
-        (argc == 2 && !ft_strncmp(argv[1], "julia", 5)))
+    fractol->t = 0;
+    if(!fractol)
+	    exit(EXIT_FAILURE);
+    init_fractol(fractol);
+    check_args(argc,argv,fractol);
+    if(argc == 4)
     {
-        init_fractol(fractol);
-        if(argc == 4)
-        {
-            fractol->jul_x = ft_atod(argv[2]);
-            fractol->jul_y = ft_atod(argv[3]);
-            draw(fractol, argv[1]);
-        }
-        else
+        fractol->jul_x = ft_atod(argv[2]);
+        fractol->jul_y = ft_atod(argv[3]);
         draw(fractol, argv[1]);
-    	mlx_key_hook(fractol->window, key_hook, fractol);
-		mlx_mouse_hook(fractol->window, mouse_hook, fractol);
-		mlx_hook(fractol->window, 17, 0L, exit_fractal, fractol);
-        mlx_loop(fractol->mlx);
     }
     else
-    {
-
-    }
+        draw(fractol, argv[1]);
+    mlx_key_hook(fractol->window, key_hook, fractol);
+	mlx_mouse_hook(fractol->window, mouse_hook, fractol);
+	mlx_hook(fractol->window, 17, 0L, exit_fractal, fractol);
+    mlx_loop(fractol->mlx);
     return (0);
 } 
  
