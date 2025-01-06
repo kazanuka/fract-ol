@@ -6,12 +6,11 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 16:01:36 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/06 19:04:35 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/06 19:46:44 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
 
 void	zoom(t_fractol *fractal, int x, int y, int zoom)
 {
@@ -37,7 +36,6 @@ void	zoom(t_fractol *fractal, int x, int y, int zoom)
 	else
 		return ;
 }
-
 
 int	exit_fractal(t_fractol *fractol)
 {
@@ -65,7 +63,7 @@ int	key_hook(int key_code, t_fractol *fractol)
 	return (0);
 }
 
-int mouse_hook(int mouse, int x, int y, t_fractol *fractol)
+int	mouse_hook(int mouse, int x, int y, t_fractol *fractol)
 {
 	if (mouse == SCROLL_UP)
 		zoom(fractol, x, y, 1);

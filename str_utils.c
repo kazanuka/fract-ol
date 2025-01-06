@@ -6,7 +6,7 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 14:37:21 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/06 19:22:09 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/06 19:54:17 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static const char *parser(const char *str, int *sign)
     return str;
 }
 
-static double parse_int(const char *str, double *fraction, double *divisor)
+static	double	parse_int(const char *str, double *fraction, double *divisor)
 {
     double result;
 
@@ -57,34 +57,39 @@ static double parse_int(const char *str, double *fraction, double *divisor)
 	*fraction = 0.0;
 	*divisor = 1.0;
 
-    while (*str >= '0' && *str <= '9')
-    {
-        result = result * 10.0 + (*str - '0');
-        str++;
-    }
-
-    if (*str == '.')
-    {
-        str++;
-        while (*str >= '0' && *str <= '9')
-        {
-            *fraction = *fraction * 10.0 + (*str - '0');
-            *divisor *= 10.0;
-            str++;
-        }
-    }
-
-    return (result);
+	while (*str >= '0' && *str <= '9')
+	{
+		result = result * 10.0 + (*str - '0');
+		str++;
+	}
+	if (*str == '.')
+	{
+		str++;
+		while (*str >= '0' && *str <= '9')
+		{
+			*fraction = *fraction * 10.0 + (*str - '0');
+			*divisor *= 10.0;
+			str++;
+		}
+	}
+	return (result);
 }
 
-double ft_atod(const char *str)
+double	ft_atod(const char *str)
 {
-    double result, fraction, divisor;
-    int sign;
-    str = parser(str, &sign);
-    result = parse_int(str, &fraction, &divisor);
-    result += fraction / divisor;
-    return (result * sign);
+	double	result;
+	double	fraction;
+	double	divisor;
+	int		sign;
+
+	result = 0;
+	fraction = 0;
+	divisor = 0;
+	sign = 0;
+	str = parser(str, &sign);
+	result = parse_int(str, &fraction, &divisor);
+	result += fraction / divisor;
+	return (result * sign);
 }
 
 void	ft_putstr_fd(char *s, int fd)
@@ -97,4 +102,3 @@ void	ft_putstr_fd(char *s, int fd)
 		++s;
 	}
 }
-
