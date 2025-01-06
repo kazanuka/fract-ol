@@ -6,7 +6,7 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 14:37:21 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/06 17:38:55 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/06 19:22:09 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,53 +34,57 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 
 
 
-double ft_atod(const char *str)
+static const char *parser(const char *str, int *sign)
 {
-    double result = 0.0;
-    double fraction = 0.0;
-    double divisor = 1.0;
-    int sign = 1;
-
-    // Boşlukları atla
+    *sign = 1;
     while (*str == ' ' || *str == '\t' || *str == '\n' ||
            *str == '\r' || *str == '\v' || *str == '\f')
         str++;
-
-    // İşareti kontrol et
     if (*str == '-' || *str == '+')
     {
         if (*str == '-')
-            sign = -1;
+            *sign = -1;
         str++;
     }
+    return str;
+}
 
-    // Tam kısmı işle
+static double parse_int(const char *str, double *fraction, double *divisor)
+{
+    double result;
+
+	result = 0.0;
+	*fraction = 0.0;
+	*divisor = 1.0;
+
     while (*str >= '0' && *str <= '9')
     {
         result = result * 10.0 + (*str - '0');
         str++;
     }
 
-    // Ondalık kısmı işle
     if (*str == '.')
     {
         str++;
         while (*str >= '0' && *str <= '9')
         {
-            fraction = fraction * 10.0 + (*str - '0');
-            divisor *= 10.0;
+            *fraction = *fraction * 10.0 + (*str - '0');
+            *divisor *= 10.0;
             str++;
         }
     }
 
-    // Tam ve ondalık kısmı birleştir
+    return (result);
+}
+
+double ft_atod(const char *str)
+{
+    double result, fraction, divisor;
+    int sign;
+    str = parser(str, &sign);
+    result = parse_int(str, &fraction, &divisor);
     result += fraction / divisor;
-	/* if(result  __DBL_MAX__)
-	{
-		exit(1);
-	} */
-    // İşareti uygula
-    return result * sign;
+    return (result * sign);
 }
 
 void	ft_putstr_fd(char *s, int fd)
