@@ -6,7 +6,7 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 16:01:36 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/05 17:53:21 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/06 19:04:35 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	zoom(t_fractol *fractal, int x, int y, int zoom)
 {
 	double	zoom_level;
 
-	zoom_level = 1.42;
+	zoom_level = 1.5;
 	if (zoom == 1)
 	{
 		fractal->off_x = (x / fractal->zoom + fractal->off_x) - (x
@@ -54,21 +54,13 @@ int	key_hook(int key_code, t_fractol *fractol)
 	if (key_code == ESC)
 		exit_fractal(fractol);
 	else if (key_code == LEFT)
-		fractol->off_x -= 42 / fractol->zoom;
+		fractol->off_x -= 50 / fractol->zoom;
 	else if (key_code == RIGHT)
-		fractol->off_x += 42 / fractol->zoom;
+		fractol->off_x += 50 / fractol->zoom;
 	else if (key_code == UP)
-		fractol->off_y -= 42 / fractol->zoom;
+		fractol->off_y -= 50 / fractol->zoom;
 	else if (key_code == DOWN)
-		fractol->off_y += 42 / fractol->zoom;
-	else if (key_code == R)
-		init_fractol(fractol);
-	else if (key_code == C)
-		fractol->color += (255 * 255 * 255) / 100;
-	/* else if (key_code == J)
-		set_random_julia(&fractal->cx, &fractal->cx);
-	else if (key_code == M || key_code == P)
-		change_iterations(fractal, key_code); */
+		fractol->off_y += 50 / fractol->zoom;
 	draw(fractol, fractol->name);
 	return (0);
 }

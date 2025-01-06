@@ -6,13 +6,13 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 14:14:58 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/06 15:40:31 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/06 18:13:35 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static int	ft_isdigit(int c)
+ static int	ft_isdigit(int c)
 {
 	if (c >= 48 && c <= 57)
 	{
@@ -44,7 +44,7 @@ static	int ft_isnum(const char *str) {
         i++;
     }
     return 1; 
-}
+} 
 
  void err_fractol(t_fractol *fractol)
 {
@@ -56,7 +56,7 @@ static	int ft_isnum(const char *str) {
 
 void    check_args(int argc, char **argv, t_fractol *fractol)
 {
-    if (!((argc == 2 && !ft_strncmp(argv[1], "mbrot", 5)) ||
+   if (!((argc == 2 && !ft_strncmp(argv[1], "mbrot", 5)) ||
         (argc == 4 && !ft_strncmp(argv[1], "julia", 5)) ||
         (argc == 2 && !ft_strncmp(argv[1], "julia", 5))))
         err_fractol(fractol);
@@ -66,5 +66,4 @@ void    check_args(int argc, char **argv, t_fractol *fractol)
         err_fractol(fractol);
     if (argc == 4 && ((!ft_isnum(argv[2])) || (!ft_isnum(argv[3]))))
         err_fractol(fractol);
-        
 } 

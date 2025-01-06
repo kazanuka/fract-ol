@@ -6,7 +6,7 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 14:37:21 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/06 15:26:14 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/06 17:38:55 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,55 +34,53 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 
 
 
-static void	ft_set_var(int *a, double *result,
-		double *fraction, int *fractionDigits)
+double ft_atod(const char *str)
 {
-	*a = 0;
-	*result = 0.0;
-	*fraction = 0.0;
-	*fractionDigits = 0;
-}
+    double result = 0.0;
+    double fraction = 0.0;
+    double divisor = 1.0;
+    int sign = 1;
 
-static void	ft_pow(double *fraction, int *fractiondigits,
-									int a, const char *str)
-{
-	if (str[a] == '.')
-	{
-		a++;
-		while (str[a] >= '0' && str[a] <= '9')
-		{
-			*fraction = *fraction * 10.0 + (str[a] - '0');
-			*fractiondigits += 1;
-			a++;
-		}
-	}
-}
+    // Boşlukları atla
+    while (*str == ' ' || *str == '\t' || *str == '\n' ||
+           *str == '\r' || *str == '\v' || *str == '\f')
+        str++;
 
-double	ft_atod(const char *str)
-{
-	int		a;
-	int		flag;
-	double	result;
-	double	fraction;
-	int		fractiondigits;
+    // İşareti kontrol et
+    if (*str == '-' || *str == '+')
+    {
+        if (*str == '-')
+            sign = -1;
+        str++;
+    }
 
-	ft_set_var(&a, &result, &fraction, &fractiondigits);
-	if (str[a] == '-' || str[a] == '+')
+    // Tam kısmı işle
+    while (*str >= '0' && *str <= '9')
+    {
+        result = result * 10.0 + (*str - '0');
+        str++;
+    }
+
+    // Ondalık kısmı işle
+    if (*str == '.')
+    {
+        str++;
+        while (*str >= '0' && *str <= '9')
+        {
+            fraction = fraction * 10.0 + (*str - '0');
+            divisor *= 10.0;
+            str++;
+        }
+    }
+
+    // Tam ve ondalık kısmı birleştir
+    result += fraction / divisor;
+	/* if(result  __DBL_MAX__)
 	{
-		if (str[a] == '-')
-			flag = -1;
-		else
-			flag = 1;
-		a++;
-	}
-	while (str[a] >= '0' && str[a] <= '9')
-	{
-		result = result * 10.0 + (str[a] - '0');
-		a++;
-	}
-	ft_pow(&fraction, &fractiondigits, a, str);
-	result += fraction / pow(10, fractiondigits);
-	return (result * flag);
+		exit(1);
+	} */
+    // İşareti uygula
+    return result * sign;
 }
 
 void	ft_putstr_fd(char *s, int fd)

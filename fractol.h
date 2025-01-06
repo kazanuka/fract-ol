@@ -6,7 +6,7 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 18:34:48 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/06 15:26:20 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/06 18:15:45 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 # include <unistd.h>
 # include <math.h>
 # include "minilibx-linux/mlx.h"
-# include <stdio.h>
-#define ERR "Please enter ./fractol mandelbrot or ./fractol julia <value 1> <value 2>"
 #define SIZE 900
 
 # define ESC 65307
@@ -26,14 +24,7 @@
 # define DOWN 65364
 # define LEFT 65361
 # define RIGHT 65363
-# define R 15
-# define C 8
-# define H 4
-# define J 38
-# define P 35
-# define M 46
 
-// MOUSECODES
 # define SCROLL_UP 4
 # define SCROLL_DOWN 5
 
@@ -42,7 +33,6 @@
 
 typedef struct s_fractol
 {
-	int t;
     void	*mlx;
 	void	*window;
 	void	*img;
@@ -63,7 +53,7 @@ typedef struct s_fractol
 	double	off_y;
 	double	zoom;
 	char	*name;
-	int		max_iterations;    
+	int		max_iterations;
 }   t_fractol;
 
 double	ft_atod(const char *str);
@@ -80,4 +70,5 @@ void    draw(t_fractol *fractol, char *prompt);
 void	julia_draw(void *ptr);
 void	check_args(int argc, char **argv, t_fractol *fractol);
 void	ft_putstr_fd(char *s, int fd);
+void	err_fractol(t_fractol *fractol);
 #endif
