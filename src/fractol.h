@@ -6,7 +6,7 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 18:34:48 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/06 18:15:45 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/07 12:50:13 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <math.h>
-# include "minilibx-linux/mlx.h"
-#define SIZE 900
+# include "../minilibx-linux/mlx.h"
+# define SIZE 900
 
 # define ESC 65307
 # define UP 65362
@@ -28,12 +28,9 @@
 # define SCROLL_UP 4
 # define SCROLL_DOWN 5
 
-
-
-
 typedef struct s_fractol
 {
-    void	*mlx;
+	void	*mlx;
 	void	*window;
 	void	*img;
 	void	*img_ptr;
@@ -54,19 +51,19 @@ typedef struct s_fractol
 	double	zoom;
 	char	*name;
 	int		max_iterations;
-}   t_fractol;
+}	t_fractol;
 
-double	ft_atod(const char *str);
+double	ft_atod(char *str);
 int		mouse_hook(int mouse, int x, int y, t_fractol *fractol);
 int		exit_fractal(t_fractol *fractol);
 int		key_hook(int key_code, t_fractol *fractol);
 void	paint(int x, int y, t_fractol *fractol, int color);
 void	calc_mbrot(t_fractol *fractol);
 void	calc_julia(t_fractol *fractol);
-void    init_fractol(t_fractol *fractal);
+void	init_fractol(t_fractol *fractal);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	mbrot_draw(void *ptr);
-void    draw(t_fractol *fractol, char *prompt);
+void	draw(t_fractol *fractol, char *prompt);
 void	julia_draw(void *ptr);
 void	check_args(int argc, char **argv, t_fractol *fractol);
 void	ft_putstr_fd(char *s, int fd);

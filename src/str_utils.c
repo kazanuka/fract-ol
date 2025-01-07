@@ -6,7 +6,7 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 14:37:21 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/06 19:54:17 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/07 13:04:51 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,31 +32,28 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
 
-
-
-static const char *parser(const char *str, int *sign)
+static	char	*parser(char *str, int *sign)
 {
-    *sign = 1;
-    while (*str == ' ' || *str == '\t' || *str == '\n' ||
-           *str == '\r' || *str == '\v' || *str == '\f')
-        str++;
-    if (*str == '-' || *str == '+')
-    {
-        if (*str == '-')
-            *sign = -1;
-        str++;
-    }
-    return str;
+	*sign = 1;
+	while (*str == ' ' || *str == '\t' || *str == '\n'
+		|| *str == '\r' || *str == '\v' || *str == '\f')
+		str++;
+	if (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			*sign = -1;
+		str++;
+	}
+	return (str);
 }
 
-static	double	parse_int(const char *str, double *fraction, double *divisor)
+static	double	parse_int(char *str, double *fraction, double *divisor)
 {
-    double result;
+	double	result;
 
 	result = 0.0;
 	*fraction = 0.0;
 	*divisor = 1.0;
-
 	while (*str >= '0' && *str <= '9')
 	{
 		result = result * 10.0 + (*str - '0');
@@ -75,7 +72,7 @@ static	double	parse_int(const char *str, double *fraction, double *divisor)
 	return (result);
 }
 
-double	ft_atod(const char *str)
+double	ft_atod(char *str)
 {
 	double	result;
 	double	fraction;

@@ -6,22 +6,17 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 18:17:06 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/06 19:54:49 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/07 13:06:38 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minilibx-linux/mlx.h"
+#include "../minilibx-linux/mlx.h"
 #include "fractol.h"
 
 int	main(int argc, char **argv)
 {
 	t_fractol	*fractol;
 
-//-Wall-Wextra -Werror!!!!!!
-//Error var
-//Tuşları düzenle
-//zoom ve öteleme mantığına iyi çalış
-//str_utils pointer
 	fractol = malloc(sizeof(t_fractol));
 	if (!fractol)
 		exit(EXIT_FAILURE);

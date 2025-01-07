@@ -10,13 +10,13 @@ MLX = $(MLX_DIR)/libmlx_Linux.a
 
 LIBS = -lX11 -lXext -lm 
 
-SRCS = main.c \
-	initializes.c \
-	str_utils.c \
-	vangogh.c \
-   	calculate.c \
-	keyboard.c \
-	check.c \
+SRCS = src/main.c \
+	src/initializes.c \
+	src/str_utils.c \
+	src/vangogh.c \
+   	src/calculate.c \
+	src/keyboard.c \
+	src/check.c \
    	
 OBJS = $(SRCS:.c=.o)
 
@@ -33,8 +33,6 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
-	
-	
 re: fclean all
 
 .PHONY: all clean fclean re

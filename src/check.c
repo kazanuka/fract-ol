@@ -6,7 +6,7 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 14:14:58 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/06 19:44:04 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/07 13:22:40 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	err_fractol(t_fractol *fractol)
 	ft_putstr_fd(" ./fractol julia <val1> <val2>\n", 1);
 	ft_putstr_fd("Use '.' as decimal seperator.", 1);
 	ft_putstr_fd(" Please use only ONE decimal seperator.\n", 1);
+	ft_putstr_fd(" Please use up to MAX double size as Julia value.\n", 1);
 	free(fractol);
 	exit(1);
 }
@@ -68,5 +69,10 @@ void	check_args(int argc, char **argv, t_fractol *fractol)
 	if (argc == 4 && ft_strncmp(argv[1], "julia", 5))
 		err_fractol(fractol);
 	if (argc == 4 && ((!ft_isnum(argv[2])) || (!ft_isnum(argv[3]))))
+		err_fractol(fractol);
+	if (argc == 4 && (ft_atod(argv[3]) > __DBL_MAX__
+			|| ft_atod(argv[2]) > __DBL_MAX__
+			|| ft_atod(argv[2]) < ((__DBL_MAX__ + 1) * -1)
+			|| ft_atod(argv[3]) < ((__DBL_MAX__ + 1) * -1)))
 		err_fractol(fractol);
 }

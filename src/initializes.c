@@ -6,7 +6,7 @@
 /*   By: fkuyumcu <fkuyumcu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 13:49:15 by fkuyumcu          #+#    #+#             */
-/*   Updated: 2025/01/06 19:45:39 by fkuyumcu         ###   ########.fr       */
+/*   Updated: 2025/01/07 13:15:46 by fkuyumcu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ void	init_fractol(t_fractol *fractol)
 	fractol->zoom = 400;
 	fractol->off_x = -2;
 	fractol->off_y = -0.3;
-	fractol->max_iterations = 100;
+	fractol->max_iterations = 50;
 	fractol->mlx = mlx_init();
-	fractol->window = mlx_new_window(fractol->mlx, SIZE, SIZE, "Fract-ol");
+	fractol->window = mlx_new_window(fractol->mlx, SIZE, SIZE, "Fractol");
 	fractol->img = mlx_new_image(fractol->mlx, SIZE, SIZE);
 	if (!(fractol->mlx) || !(fractol->img) || !(fractol->window))
 		exit_fractal(fractol);
